@@ -1,4 +1,4 @@
-#!/bin/bash
+#!env/bin/env bash
 
 NAME=$1
 LAST_NAME=$2
