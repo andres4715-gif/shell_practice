@@ -1,9 +1,9 @@
 #!/bin/bash
 
-NOMBRE=$1
-APELLIDO=$2
-EDAD=$3
+NAME=$1
+LAST_NAME=$2
+AGE=$3
 
-echo "Nombre: ${NOMBRE}"
-echo "Apellido: ${APELLIDO}"
-echo "Edad: ${EDAD}"
+echo "The name is: ${NAME}"
+echo "The last name is: ${LAST_NAME}"
+echo "The age is: ${AGE}"
