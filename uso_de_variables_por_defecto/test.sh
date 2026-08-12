@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 
-# Script de prueba con diferentes escenarios
-
 echo "======================================"
-echo "TEST: Diferentes Escenarios"
+echo     "TEST: Different scenarios"
 echo "======================================"
 echo ""
 
-# ESCENARIO 1: Variables vacías vs no definidas
-echo "--- ESCENARIO 1: Vacío vs No Definido ---"
+# Scenario 1: Empty variables vs not defined variables
+echo "--- Scenario 1: Empty vs not defined ---"
 
 var_vacia=""
 # var_no_definida no existe
