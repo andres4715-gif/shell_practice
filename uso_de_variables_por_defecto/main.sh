@@ -1,21 +1,20 @@
 #!/usr/bin/env bash
 
-# Script principal que usa valores por defecto
-
-# Importar configuración desde otro archivo
-source ./config.sh
+# Import setup from another file
+source $(dirname $BASH_SOURCE)/config.sh
 
 echo "======================================"
-echo "DEMO: Valores por defecto en Bash"
+echo "DEMO: Value by default in Bash"
 echo "======================================"
 echo ""
 
-# EJEMPLO 1: Variable que TIENE valor en config.sh
-echo "--- EJEMPLO 1: BINARY_SERVER_SSH ---"
+# Example 1: The value comes from -> config.sh
+echo "--- Example 1: BINARY_SERVER_SSH ---"
+echo "👷🏻‍♂️ BINARY_SERVER_SSH: " ${BINARY_SERVER_SSH} 
 : ${BINARY_SERVER_SSH:=default_user@default.server}
 
-if [ -n "$BINARY_SERVER_SSH" ]; then
-    echo "✓ Valor encontrado: $BINARY_SERVER_SSH"
+if [ -n "$BINARY_SERVER_SSH" ]; then # -n means "not empty"
+    echo "✓ Found value: $BINARY_SERVER_SSH"
     exit_code=1
 else
     echo "✗ Valor NO encontrado, usando defecto"
@@ -28,7 +27,7 @@ echo ""
 echo "--- EJEMPLO 2: USER_NAME (NO DEFINIDO) ---"
 : ${USER_NAME:=admin@localhost}
 
-if [ -n "$USER_NAME" ]; then
+if [ -n "$USER_NAME" ]; then # -n means "not empty"
     echo "✓ Valor encontrado: $USER_NAME"
     exit_code=1
 else
