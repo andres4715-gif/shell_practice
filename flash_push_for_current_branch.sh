@@ -6,4 +6,4 @@ echo "CURRENT_BRANCH: $CURRENT_BRANCH"
 git add .
 git commit -m "new data"
 git push origin $CURRENT_BRANCH
-echo "Code pushed to:" $CURRENT_BRANCH && echo "🚀"
+echo "Code pushed to: $CURRENT_BRANCH 🚀"
