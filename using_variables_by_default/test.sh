@@ -5,43 +5,51 @@ echo     "TEST: Different scenarios"
 echo "======================================"
 echo ""
 
+echo "======================================"
 # Scenario 1: Empty variables vs not defined variables
 echo "--- Scenario 1: Empty vs not defined ---"
+echo "======================================"
 
-var_vacia=""
-# var_no_definida no existe
+empty_var=""
+# var_not_defined does not exists
 
-: ${var_vacia:="valor por defecto 1"}
-: ${var_no_definida:="valor por defecto 2"}
+: ${empty_var:="Default value 1"}
+: ${var_not_defined:="Default value 2"}
 
-echo "var_vacia = '$var_vacia'"
-echo "var_no_definida = '$var_no_definida'"
+echo "empty_var = '$empty_var'"
+echo "var_not_defined = '$var_not_defined'"
 echo ""
 
-# ESCENARIO 2: Operadores de asignación por defecto
-echo "--- ESCENARIO 2: Diferentes Operadores ---"
+echo "======================================"
+# SCENARIO 2: Assigned operators by default.
+echo "--- SCENARIO 2: Different Operators ---"
+echo "======================================"
 
-# ${var:=valor}  - asigna si está vacío o no definido
-: ${TEST1:="defecto1"}
-echo "TEST1 (con :=) = $TEST1"
+# ${var:=value}  - assign a value if this is not defined
+: ${TEST1:="default1"}
+echo "TEST1 is: $TEST1"
 
-# ${var:-valor}  - usa defecto sin asignar
-echo "TEST2 (con :-) = ${TEST2:-defecto2}"
-echo "TEST2 definida? $([ -z "$TEST2" ] && echo "NO" || echo "SÍ")"
+# ${var:-value}  - use this value without assign it
+echo "TEST2 (using :-) = ${TEST2:-default2}"
+echo "TEST2 defined? $([ -z "$TEST2" ] && echo "NO" || echo "YES")"
 
-# ${var:+valor}  - usa valor SOLO si está definido
-TEST3="algo"
-echo "TEST3 (con :+) = ${TEST3:+TEST3 tiene valor}"
+# ${var:+value}  - it use the value only if this is already defined
+TEST3="something"
+echo "TEST3 (con :+) = ${TEST3:+TEST3 with value}"
 
-# ${var:?mensaje} - falla si no está definido
+# ${var:?mensaje} - Fails if it is not defined
 # : ${REQUIRED_VAR:?ERROR: REQUIRED_VAR es obligatorio}
 echo ""
 
-# ESCENARIO 3: Función que retorna 0/1 basado en si encontró valor
-echo "--- ESCENARIO 3: FUNCIÓN CON RETURN ---"
+echo "======================================"
+# SCENARIO 3: Function that return 0/1 based it found a value
+echo "--- SCENARIO 3: FUNCTION WITH RETURN ---"
+echo "======================================"
 
 check_value() {
     local var_name=$1
+    echo "VALUE INSIDE THE FUNCTION_1: $var_name"
+    echo "VALUE INSIDE THE FUNCTION_2:" ${!var_name}
     local var_value=${!var_name}  # Obtener el valor de la variable por nombre
     local default=$2
 
@@ -67,8 +75,10 @@ echo "Return code: $?"
 echo "MISSING_VAR después de la función: $MISSING_VAR"
 echo ""
 
+echo "======================================"
 # ESCENARIO 4: Script que toma parámetros y usa defectos
 echo "--- ESCENARIO 4: PARÁMETROS CON DEFECTOS ---"
+echo "======================================"
 
 USERNAME=${1:-"admin"}
 PASSWORD=${2:-"password123"}
@@ -81,8 +91,10 @@ echo "Host: $HOSTNAME"
 echo "Puerto: $PORT"
 echo ""
 
+echo "======================================"
 # ESCENARIO 5: Validación completa
 echo "--- ESCENARIO 5: VALIDACIÓN COMPLETA ---"
+echo "======================================"
 
 validate_and_print() {
     local var_name=$1
@@ -111,5 +123,5 @@ echo "Return code: $?"
 echo ""
 
 echo "======================================"
-echo "Tests completados"
+echo "Tests completed 👷🏻‍♂️"
 echo "======================================"
